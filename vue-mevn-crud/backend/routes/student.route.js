@@ -15,49 +15,53 @@ studentRoute.get('/', (req, res, next) => {
     })
 })
 
-//create student data
-studentRoute.post('/create-student', (req, res, next) => {
-    StudentModel.create((req.body, (error, data) => {
-        if(error){
-            return next(error); 
-        }else{
-            res.json(data)
+// Create student data
+studentRoute.route('/create-student').post((req, res, next) => {
+    StudentModel.create(req.body, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data);
         }
-    }))
+    })
 })
 
-studentRoute.get('/edit-student/:id', (req, res, next) => {
+// Edit student data
+studentRoute.route('/edit-student/:id').get((req, res, next) => {
     StudentModel.findById(req.params.id, (error, data) => {
-        if(error){
-            return next(error); 
-        }else{
-            res.json(data)
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data);
         }
     })
 })
 
-studentRoute.put('/update-student/:id', (req, res,next)=>{
+// Update student data
+studentRoute.route('/update-student/:id').put((req, res, next) => {
     StudentModel.findByIdAndUpdate(req.params.id, {
-        $set : req.body
-    }, (error, data)=>{
-        if(error){
-            return next(error); 
-        }else{
-            res.json(data)
-            console.log('Student successfully updated')
+        $set: req.body
+    }, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log('Student successfully updated');
         }
     })
 })
 
-//Delete student data
-studentRoute.delete('/delete-student/:id', (req, res, next)=>{
-    StudentModel.findByIdAndDelete(req.params.id,(error, data)=>{
-        if(error){
-            return next(error); 
-        }else{
+// Delete student data
+studentRoute.route('/delete-student/:id').delete((req, res, next) => {
+    StudentModel.findByIdAndDelete(req.params.id, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
             res.status(200).json({
-                msg : data
+                msg: data
             })
         }
     })
 })
+
+module.exports = studentRoute;
