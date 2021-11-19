@@ -6,7 +6,7 @@
         <router-link to="/" class="navbar-brand float-left"> MEVN Stack CRUD </router-link>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link to="/" class="nav-link">Create Student </router-link>
+            <router-link to="/" class="nav-link p-2">Create Student </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/view" class="nav-link">View Student </router-link>
