@@ -1,4 +1,3 @@
-
 import { createWebHistory, createRouter } from "vue-router";
 import CreateComponent from "@/components/CreateComponent.vue";
 import EditComponent from "@/components/EditComponent.vue";
