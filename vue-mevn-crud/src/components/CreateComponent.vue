@@ -36,8 +36,7 @@
                     name: "", 
                     email: "",
                     phone: ""
-                }
-                
+                } 
             }
         }, 
         methods:{
