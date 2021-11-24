@@ -23,6 +23,7 @@ mongoose.connect(database.db, {
   }
 )
 
+// express au lieu de bodyparser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
